@@ -19,7 +19,7 @@ public class RadioButtonExample {
     }
 
     @Test
-    public void leafGroundDropDownExample() throws InterruptedException {
+    public void leafGroundRadioExample() throws InterruptedException {
         driver.get("https://www.leafground.com/radio.xhtml");
 
 
@@ -51,5 +51,21 @@ public class RadioButtonExample {
 
 
 
+
+
+    WebElement myAgeGroup = driver.findElement(By.id("j_idt87:age:0"));
+    boolean isChecked = myAgeGroup.isSelected();
+    if(!isChecked){
+        //myAgeGroup.click();
+        driver.findElement(By.xpath("//label[normalize-space()='1-20 Years']")).click();
     }
+    }
+
+
+
+
+
+
+
+
 }
