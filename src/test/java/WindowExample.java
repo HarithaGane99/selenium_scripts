@@ -22,7 +22,8 @@ public class WindowExample {
     @Test
     public void windowExample() throws InterruptedException {
         driver.get("https://www.leafground.com/window.xhtml");
-
+        Thread.sleep(2000);
+        
         String oldWindow = driver.getWindowHandle();
         System.out.println("Parent Window Handle: " + oldWindow);
 
@@ -63,10 +64,28 @@ public class WindowExample {
         boolean openButtonVisibility=openButton.isDisplayed();
         System.out.println("Open button visibility : " + openButtonVisibility);
 
-        
+
         //02 Find the number of opened tabs
+        driver.findElement(By.id("j_idt88:j_idt91")).click();
+        driver.getWindowHandles().size();
+        System.out.println("No of windows opened  : " + driver.getWindowHandles().size());
 
         //03 Close all windows except primary
+        WebElement dontCloseMeButton = driver.findElement(By.xpath("//button[@id='j_idt88:j_idt93']"));
+        dontCloseMeButton.click();
+        Thread.sleep(2000);
+
+        Set<String> newWindowHandles = driver.getWindowHandles();
+        System.out.println("New window handle size "+newWindowHandles.size());
+        for(String allWindows:newWindowHandles){
+            if(!allWindows.equals(oldWindow)){
+                driver.switchTo().window(allWindows);
+                driver.close();
+            }
+
+        }
+
+
     }
 
 }
