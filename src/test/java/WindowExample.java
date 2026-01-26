@@ -23,7 +23,7 @@ public class WindowExample {
     public void windowExample() throws InterruptedException {
         driver.get("https://www.leafground.com/window.xhtml");
         Thread.sleep(2000);
-        
+
         String oldWindow = driver.getWindowHandle();
         System.out.println("Parent Window Handle: " + oldWindow);
 
@@ -85,6 +85,11 @@ public class WindowExample {
 
         }
 
+        driver.quit();//------>close all browser windows
+
+//         driver.switchTo().window(oldWindow);
+
+//         driver.close();--------> close single browser window driver which on focus
 
     }
 
