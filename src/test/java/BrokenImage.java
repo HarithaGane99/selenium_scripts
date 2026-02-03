@@ -19,7 +19,7 @@ public class BrokenImage {
         driver = new ChromeDriver();
 
         driver.manage().window().maximize();
-        Thread.sleep(2000);
+
 
     }
 
@@ -28,6 +28,7 @@ public class BrokenImage {
     @Test
     public void BrokenImage() throws InterruptedException {
         driver.get("https://the-internet.herokuapp.com/broken_images");
+        Thread.sleep(2000);
         List<WebElement> images = driver.findElements(By.xpath("//div[@class='example']/img"));
 
         //naturalWidth ='0'

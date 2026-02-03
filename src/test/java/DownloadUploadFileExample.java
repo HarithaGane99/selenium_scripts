@@ -17,7 +17,7 @@ public class DownloadUploadFileExample {
         driver = new ChromeDriver();
 
         driver.manage().window().maximize();
-        Thread.sleep(2000);
+
 
     }
 
@@ -26,6 +26,7 @@ public class DownloadUploadFileExample {
     @Test
     public void DownloadAFile() throws InterruptedException {
         driver.get("https://www.leafground.com/file.xhtml");
+        Thread.sleep(2000);
         WebElement downloadButton = driver.findElement(By.id("j_idt93:j_idt95"));
         downloadButton.click();
         Thread.sleep(2000);
